@@ -1,21 +1,21 @@
-import { initialItems } from "../lib/constants";
-
-const ItemList = () => {
+const ItemList = ({ items }) => {
   return (
     <ul>
-      {initialItems.map((item) => (
-        <Item key={item.name} item={item} />
-      ))}
+      {items.map((item) => {
+        return <Item key={item.id} item={item} />;
+      })}
     </ul>
   );
 };
 
-export const Item = ({ item }) => {
+const Item = ({ item }) => {
   return (
     <li className="item">
       <label>
         <input type="checkbox" checked={item.packed} /> {item.name}
       </label>
+
+      <button>❌</button>
     </li>
   );
 };
